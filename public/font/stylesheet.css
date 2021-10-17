@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'monda';
+    src: url('./Monda-Bold.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'poppins-regular';
+    src: url('./Poppins-Regular.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'poppins-bold';
+    src: url('./Poppins-Bold.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'poppins-semibold';
+    src: url('./Poppins-SemiBold.ttf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'poppins-medium';
+    src: url('./Poppins-Medium.ttf');
+    font-style: normal;
+}
