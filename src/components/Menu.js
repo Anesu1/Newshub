@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import * as boxiconsSolid from "@styled-icons/boxicons-solid";
 import { NavLink, Link } from "react-router-dom";
 
 function Menu({ click, setClick }) {

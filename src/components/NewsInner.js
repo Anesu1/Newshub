@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react'
 import Heading from '../styled/Heading'
-import SocialIcons from '../styled/SocialIcons';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

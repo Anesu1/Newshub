@@ -1,6 +1,4 @@
 import React from "react";
-import * as boxiconsLogos from "@styled-icons/boxicons-logos";
-import * as faBrands from "@styled-icons/fa-brands";
 import { FacebookSquare } from "@styled-icons/boxicons-logos/FacebookSquare";
 import { Instagram } from "@styled-icons/boxicons-logos/Instagram";
 import { Youtube } from "@styled-icons/boxicons-logos/Youtube";

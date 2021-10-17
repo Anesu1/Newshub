@@ -1,8 +1,6 @@
 import React from "react";
-import styled from "styled-components";
-import Button from "../styled/Button";
+import styled from "styled-components"
 import Heading from "../styled/Heading";
-import SocialIcons from "../styled/SocialIcons";
 import FollowUs from './FollowUs'
 import Subscribe from "./Subscribe";
 

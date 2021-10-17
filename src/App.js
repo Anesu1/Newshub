@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Home from './pages/Home'
@@ -16,8 +17,6 @@ import Post from './pages/Post';
 import {
   ApolloClient,
   InMemoryCache,
-  useQuery,
-  gql
 } from "@apollo/client";
 
 export const client = new ApolloClient({

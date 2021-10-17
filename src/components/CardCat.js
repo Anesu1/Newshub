@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import styled from "styled-components";
-import { FacebookSquare, GooglePlus, Instagram, Twitter, Youtube } from "styled-icons/boxicons-logos";
 import Button from "../styled/Button";
 
 const CardWrapper = styled.div`

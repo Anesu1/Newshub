@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
-import SocialIcons from '../styled/SocialIcons';
 
 const PageCardContainer = styled.div`
 position:relative;

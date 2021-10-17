@@ -7,6 +7,7 @@ import Heading from '../styled/Heading';
 import styled from 'styled-components';
 import * as api from '../api/config';
 import {CATEGORY} from '../api/config';
+import { shuffle } from "lodash";
 
 
 
@@ -80,32 +81,24 @@ export const PageWrapper = styled.section`
 
 
 function Politics() {
-    const category = CATEGORY = 'politics'
     const [newsList, setEventList] = useState([]);
     const [error, setError] = useState();
     useEffect(()=>{
-        api.fetchNews().then(response=>setEventList(response?.articles)).catch(error=>setError(error))
-    },[])
+        api
+        .fetchNews(CATEGORY.POLITICS)
+        .then((response) => setEventList(shuffle(response?.articles)))
+        .catch((error) => setError(error));    },[])
     return (
         <PageWrapper>
-             <PageBanner text="Politics"
-            img1="./Images/feat2.jpg"
-            title1="18 Companies to close over tax
-            audit "
-            img2="./Images/ga2.jpg"
-            title2="18 Companies to close over tax
-            audit "
-            img3="./Images/1583968961933.jpg"
-            title3="18 Companies to close over tax
-            audit "
-            />
+                  <PageBanner articles={newsList.slice(0, 3)} />
+
             <hr />
             <div className="page-last">
                 <Heading>
                     Politics
                 </Heading>
                 {error ? "Error getting data":null}
-            {newsList.map((e, i)=>{
+            {newsList.slice(3, 8).map((e, i)=>{
                 return <PageCard img={e.urlToImage} key={i} cardBody={e.content} cardTitle={e.title}/>
             })}
             </div>

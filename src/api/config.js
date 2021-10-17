@@ -16,9 +16,6 @@ export const url = `https://newsapi.org/v2/everything`;
 // https://date-fns.org/
 // 
 
-console.log('query string example', queryString.stringify({param1: 'Scott', param2: 'Anesu'})); 
-// should output param1=Scott&param2=Anesu
-
 export const fetchNews = (category, sortBy='popularity') =>{ // this is a default parameter to functions
     const dateNow = new Date();
     return fetch(`${url}?${queryString.stringify({ // query string should end up like this ?q=${CATEGORY}&from=2021-10-13&to=2021-10-13&sortBy=popularity&apiKey=${API_KEY}
@@ -39,5 +36,10 @@ export const fetchNews = (category, sortBy='popularity') =>{ // this is a defaul
 
 export const CATEGORY = {
     BUSINESS: 'business',
-
+    ENTERTAINMENT: 'entertainment',
+    GENDER_ADVOCACY:'gender-advocacy',
+    HEALTHY:'healthy',
+    HUMAN_INTEREST:'human-interest',
+    POLITICS:'politics',
+    SPORTS:'sports'
 }

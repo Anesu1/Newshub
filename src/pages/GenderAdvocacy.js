@@ -1,51 +1,46 @@
-import React,{useEffect, useState} from 'react';
-import Subscribe from '../components/Subscribe';
-import FollowUs from '../components/FollowUs';
-import PageBanner from '../components/PageBanner';
-import Heading from '../styled/Heading';
-import PageCard from '../components/PageCard';
-import {PageWrapper} from './Politics'
-import * as api from '../api/config';
-import {CATEGORY} from '../api/config';
-
-
-
+import React, { useEffect, useState } from "react";
+import Subscribe from "../components/Subscribe";
+import FollowUs from "../components/FollowUs";
+import PageBanner from "../components/PageBanner";
+import Heading from "../styled/Heading";
+import PageCard from "../components/PageCard";
+import { PageWrapper } from "./Politics";
+import * as api from "../api/config";
+import { shuffle } from "lodash";
+import { CATEGORY } from "../api/config";
 
 function GenderAdvocacy() {
-    const category = CATEGORY = 'gender-advocacy';
-    const [newsList, setEventList] = useState([]);
-    const [error, setError] = useState();
-    useEffect(()=>{
-        api.fetchNews().then(response=>setEventList(response?.articles)).catch(error=>setError(error))
-    },[])
-    return (
-        <PageWrapper>
-             <PageBanner text="Gender Advocacy"
-            img1="./Images/ga.jpg"
-            title1="18 Companies to close over tax
-            audit "
-            img2="./Images/ga1.jpg"
-            title2="18 Companies to close over tax
-            audit "
-            img3="./Images/ga2.jpg"
-            title3="18 Companies to close over tax
-            audit "
-            /> 
-             <div className="page-last">
-                <Heading>
-                    Gender Advocacy
-                </Heading>
-                {error ? "Error getting data":null}
-            {newsList.map((e, i)=>{
-                return <PageCard img={e.urlToImage} key={i} cardBody={e.content} cardTitle={e.title}/>
-            })}
-            </div>
-           <div className="bottom">
-              <FollowUs />
-              <Subscribe />
-            </div>
-        </PageWrapper>
-    )
+  const [newsList, setEventList] = useState([]);
+  const [error, setError] = useState();
+  useEffect(() => {
+    api
+      .fetchNews(CATEGORY.GENDER_ADVOCACY)
+      .then((response) => setEventList(shuffle(response?.articles)))
+      .catch((error) => setError(error));
+  }, []);
+  return (
+    <PageWrapper>
+      <PageBanner articles={newsList.slice(0, 3)} />
+      <div className="page-last">
+        <Heading>Gender Advocacy</Heading>
+        {error ? "Error getting data" : null}
+        {newsList.slice(3, 8).map((e, i) => {
+          return (
+            <PageCard
+              img={e.urlToImage}
+              key={i}
+              cardBody={e.content}
+              cardTitle={e.title}
+            />
+          );
+        })}
+      </div>
+      <div className="bottom">
+        <FollowUs />
+        <Subscribe />
+      </div>
+    </PageWrapper>
+  );
 }
 
-export default GenderAdvocacy
+export default GenderAdvocacy;

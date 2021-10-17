@@ -1,6 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import styled from "styled-components";
-import Heading from "../styled/Heading";
 
 const PageBannerWrapper = styled.section`
   margin: 5%;
@@ -43,20 +43,20 @@ const PageBannerWrapper = styled.section`
   }
 `;
 
-function PageBanner({  img, title }) {
+// eslint-disable-next-line react/prop-types
+function PageBanner({ articles }) {
   return (
     <PageBannerWrapper>
-      
-     
-        <div className="top-inner">
+      {/* now you can map as many articles as get passed */}
+      {articles.map((article, i) => (
+        <div className="top-inner" key={i}>
           <div className="img">
-            <img src={img} alt="" />
+            <img src={article.urlToImage} alt="" />
           </div>
 
-          <h3>{title}</h3>
+          <h3>{article.title}</h3>
         </div>
-        
-     
+      ))}
     </PageBannerWrapper>
   );
 }
